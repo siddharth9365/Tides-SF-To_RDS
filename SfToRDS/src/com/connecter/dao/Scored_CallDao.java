@@ -5,14 +5,25 @@ import java.util.List;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
+import org.hibernate.criterion.Order;
 import org.hibernate.criterion.Restrictions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.connecter.bean.Scored_CallBean;
 import com.connecter.mappingbean.Scored_CallMappingBean;
+import com.connecter.services.CallService;
+import com.connecter.services.MappingServices;
 
 @Repository
 public class Scored_CallDao extends BaseDao {
+	@Autowired
+	private CallService callService;
+
+	@Autowired
+	private MappingServices mappingService;
+
 	@Transactional
 	public List<Scored_CallMappingBean> getSelected(final Scored_CallMappingBean scored_CallMappingBean)
 			throws IllegalArgumentException, IllegalAccessException {
@@ -37,12 +48,50 @@ public class Scored_CallDao extends BaseDao {
 	public void updateScored_Calls(final Scored_CallMappingBean scored_CallMappingBean) throws Exception {
 		Scored_CallMappingBean mappingBean = (Scored_CallMappingBean) getSession().get(Scored_CallMappingBean.class,
 				scored_CallMappingBean.getId());
-		for (Field f : scored_CallMappingBean.getClass().getFields()) {
-			if (f.get(scored_CallMappingBean) != null) {
-				Field tempField = mappingBean.getClass().getField(f.getName());
-				tempField.set(mappingBean, f.get(scored_CallMappingBean));
+		// System.out.println(scored_CallMappingBean.getId());
+		if (mappingBean != null) {
+			for (Field f : scored_CallMappingBean.getClass().getFields()) {
+				if (f.get(scored_CallMappingBean) != null) {
+					Field tempField = mappingBean.getClass().getField(f.getName());
+					tempField.set(mappingBean, f.get(scored_CallMappingBean));
+				}
 			}
 		}
 		update(mappingBean);
+		changeStatus(scored_CallMappingBean);
+	}
+
+	@Transactional
+	public String addCalls(Scored_CallMappingBean scored_CallMappingBean) {
+		final Session session = getSession();
+		String id = (String) session.save(scored_CallMappingBean);
+		changeStatus(scored_CallMappingBean);
+		return id;
+	}
+
+	public void changeStatus(Scored_CallMappingBean scored_CallMappingBean) {
+		final Criteria crit = getSession().createCriteria(Scored_CallMappingBean.class);
+		crit.add(Restrictions.eq("Call__c", scored_CallMappingBean.getCall__c()));
+		crit.addOrder(Order.desc("CreatedDate"));
+		List<Scored_CallMappingBean> scored_CallMappingList = crit.list();
+		if (scored_CallMappingList.size() > 0) {
+			for (Scored_CallMappingBean callMappingBean : scored_CallMappingList) {
+				callMappingBean.Is_latest_scored__c = 0;
+				update(callMappingBean);
+			}
+			Scored_CallMappingBean scored_CallMappingBeanTemp = scored_CallMappingList.get(0);
+			scored_CallMappingBeanTemp.Is_latest_scored__c = 1;
+			update(scored_CallMappingBeanTemp);
+			try {
+				Scored_CallBean scored_CallBean = mappingService.getScored_CallObject(scored_CallMappingBeanTemp);
+				callService.updateLatestScored_Call(scored_CallBean);
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		} else {
+			scored_CallMappingBean.Is_latest_scored__c = 1;
+			update(scored_CallMappingBean);
+		}
 	}
 }

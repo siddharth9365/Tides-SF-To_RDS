@@ -1,10 +1,12 @@
 package com.connecter.mappingbean;
 
-import java.util.Date;
+import java.sql.Timestamp;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -12,22 +14,26 @@ import javax.persistence.Table;
 public class Scored_CallMappingBean {
 	@Id
 	public String Id;
-	public Date CreatedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp CreatedDate;
 	public String CreatedById;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer IsDeleted;
-	public Date LastModifiedDate;
-	public Date LastActivityDate;
-	// Date LastViewedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp LastModifiedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp LastActivityDate;
+	// Timestamp LastViewedTimestamp;
 	public String LastModifiedById;
 	public String Name;
 	// String RecordTypeId;
-	public Date SystemModstamp;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp SystemModstamp;
 	public Double Accuracy_Point__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Appt_Scheduled__c;
 	public String Call__c;
-	// Date Call_Date_Time__c;
+	// Timestamp Call_Timestamp_Time__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Caller_left_name__c;
 	@Column(columnDefinition = "NUMBER(1)")
@@ -52,7 +58,7 @@ public class Scored_CallMappingBean {
 	// Double temp_num_Clear_and_Courteous__c;
 	// String Contact_Or_User_Name__c;
 	public String Contact_user__c;
-	// Date createdDate_datetime__c;
+	// Timestamp createdTimestamp_datetime__c;
 	public String Current_Scorer__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Did_audio_Played__c;
@@ -86,19 +92,24 @@ public class Scored_CallMappingBean {
 	public String No_Please_choose_Why_They_called__c;
 	public String Old_SF_ID__c;
 	public String Outbound_or_Inbound__c;
-	public Date Patient_1_Appt_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Patient_1_Appt_Date__c;
 	public String Patient_1_First_Name__c;
 	public String Patient_1_Last_Name__c;
-	public Date Patient_2_Appt_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Patient_2_Appt_Date__c;
 	public String Patient_2_First_Name__c;
 	public String Patient_2_Last_Name__c;
-	public Date Patient_3_Appt_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Patient_3_Appt_Date__c;
 	public String Patient_3_First_Name__c;
 	public String Patient_3_Last_Name__c;
-	public Date Patient_4_Appt_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Patient_4_Appt_Date__c;
 	public String Patient_4_First_Name__c;
 	public String Patient_4_Last_Name__c;
-	public Date Patient_5_Appt_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Patient_5_Appt_Date__c;
 	public String Patient_5_First_Name__c;
 	public String Patient_5_Last_Name__c;
 	@Column(columnDefinition = "NUMBER(1)")
@@ -113,16 +124,17 @@ public class Scored_CallMappingBean {
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Schedule_Appt__c;
 	// Double temp_num_Schedule_Appt__c;
-	public Date Score_DateTime__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Score_DateTime__c;
 	public String Scorer__c;
-	// Date ScorerLocalTime__c;
+	// Timestamp ScorerLocalTime__c;
 	public Double Scoring_Time__c;
 	// Double Scoring_time_in_second__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Skipped_by_CA__c;
 	public String Staff_Comments__c;
 	// Double Star_Rating__c;
-	// String Text_CreatedDate__c;
+	// String Text_CreatedTimestamp__c;
 	@Column(name = "Total_Psbl_Accuracy_Pnt__c")
 	public Double Total_Possible_Accuracy_Point__c;
 	// String Total_Scoring_time__c;
@@ -148,11 +160,11 @@ public class Scored_CallMappingBean {
 		Id = id;
 	}
 
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return CreatedDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		CreatedDate = createdDate;
 	}
 
@@ -172,19 +184,19 @@ public class Scored_CallMappingBean {
 		IsDeleted = isDeleted;
 	}
 
-	public Date getLastModifiedDate() {
+	public Timestamp getLastModifiedDate() {
 		return LastModifiedDate;
 	}
 
-	public void setLastModifiedDate(Date lastModifiedDate) {
+	public void setLastModifiedDate(Timestamp lastModifiedDate) {
 		LastModifiedDate = lastModifiedDate;
 	}
 
-	public Date getLastActivityDate() {
+	public Timestamp getLastActivityDate() {
 		return LastActivityDate;
 	}
 
-	public void setLastActivityDate(Date lastActivityDate) {
+	public void setLastActivityDate(Timestamp lastActivityDate) {
 		LastActivityDate = lastActivityDate;
 	}
 
@@ -204,11 +216,11 @@ public class Scored_CallMappingBean {
 		Name = name;
 	}
 
-	public Date getSystemModstamp() {
+	public Timestamp getSystemModstamp() {
 		return SystemModstamp;
 	}
 
-	public void setSystemModstamp(Date systemModstamp) {
+	public void setSystemModstamp(Timestamp systemModstamp) {
 		SystemModstamp = systemModstamp;
 	}
 
@@ -492,11 +504,11 @@ public class Scored_CallMappingBean {
 		Outbound_or_Inbound__c = outbound_or_Inbound__c;
 	}
 
-	public Date getPatient_1_Appt_Date__c() {
+	public Timestamp getPatient_1_Appt_Date__c() {
 		return Patient_1_Appt_Date__c;
 	}
 
-	public void setPatient_1_Appt_Date__c(Date patient_1_Appt_Date__c) {
+	public void setPatient_1_Appt_Date__c(Timestamp patient_1_Appt_Date__c) {
 		Patient_1_Appt_Date__c = patient_1_Appt_Date__c;
 	}
 
@@ -516,11 +528,11 @@ public class Scored_CallMappingBean {
 		Patient_1_Last_Name__c = patient_1_Last_Name__c;
 	}
 
-	public Date getPatient_2_Appt_Date__c() {
+	public Timestamp getPatient_2_Appt_Date__c() {
 		return Patient_2_Appt_Date__c;
 	}
 
-	public void setPatient_2_Appt_Date__c(Date patient_2_Appt_Date__c) {
+	public void setPatient_2_Appt_Date__c(Timestamp patient_2_Appt_Date__c) {
 		Patient_2_Appt_Date__c = patient_2_Appt_Date__c;
 	}
 
@@ -540,11 +552,11 @@ public class Scored_CallMappingBean {
 		Patient_2_Last_Name__c = patient_2_Last_Name__c;
 	}
 
-	public Date getPatient_3_Appt_Date__c() {
+	public Timestamp getPatient_3_Appt_Date__c() {
 		return Patient_3_Appt_Date__c;
 	}
 
-	public void setPatient_3_Appt_Date__c(Date patient_3_Appt_Date__c) {
+	public void setPatient_3_Appt_Date__c(Timestamp patient_3_Appt_Date__c) {
 		Patient_3_Appt_Date__c = patient_3_Appt_Date__c;
 	}
 
@@ -564,11 +576,11 @@ public class Scored_CallMappingBean {
 		Patient_3_Last_Name__c = patient_3_Last_Name__c;
 	}
 
-	public Date getPatient_4_Appt_Date__c() {
+	public Timestamp getPatient_4_Appt_Date__c() {
 		return Patient_4_Appt_Date__c;
 	}
 
-	public void setPatient_4_Appt_Date__c(Date patient_4_Appt_Date__c) {
+	public void setPatient_4_Appt_Date__c(Timestamp patient_4_Appt_Date__c) {
 		Patient_4_Appt_Date__c = patient_4_Appt_Date__c;
 	}
 
@@ -588,11 +600,11 @@ public class Scored_CallMappingBean {
 		Patient_4_Last_Name__c = patient_4_Last_Name__c;
 	}
 
-	public Date getPatient_5_Appt_Date__c() {
+	public Timestamp getPatient_5_Appt_Date__c() {
 		return Patient_5_Appt_Date__c;
 	}
 
-	public void setPatient_5_Appt_Date__c(Date patient_5_Appt_Date__c) {
+	public void setPatient_5_Appt_Date__c(Timestamp patient_5_Appt_Date__c) {
 		Patient_5_Appt_Date__c = patient_5_Appt_Date__c;
 	}
 
@@ -660,11 +672,11 @@ public class Scored_CallMappingBean {
 		Schedule_Appt__c = schedule_Appt__c;
 	}
 
-	public Date getScore_DateTime__c() {
+	public Timestamp getScore_DateTime__c() {
 		return Score_DateTime__c;
 	}
 
-	public void setScore_DateTime__c(Date score_DateTime__c) {
+	public void setScore_DateTime__c(Timestamp score_DateTime__c) {
 		Score_DateTime__c = score_DateTime__c;
 	}
 

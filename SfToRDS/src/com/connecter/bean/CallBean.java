@@ -1,25 +1,25 @@
 package com.connecter.bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class CallBean {
 	String Id;
-	Date CreatedDate;
+	Timestamp CreatedDate;
 	String CreatedById;
 	Boolean IsDeleted;
-	Date LastModifiedDate;
-	Date LastReferencedDate;
-	Date LastViewedDate;
+	Timestamp LastModifiedDate;
+	Timestamp LastReferencedDate;
+	Timestamp LastViewedDate;
 	String LastModifiedById;
 	String Name;
 	String RecordTypeId;
-	Date SystemModstamp;
+	Timestamp SystemModstamp;
 	String Account__c;
 	Boolean add_walk_in__c;
 	Boolean Bulk_Import__c;
 	Boolean Bulk_Workflow_Toggle__c;
-	// Date Call_Date__c;
-	Date Call_Date_Time__c;
+	// Timestamp Call_Timestamp__c;
+	Timestamp Call_Date_Time__c;
 	// String Call_Duration_MM_SS__c;
 	// String Call_Duration_MS__c;
 	String CallerName__c;
@@ -28,14 +28,14 @@ public class CallBean {
 	String Call_Language__c;
 	String Call_Receiver__c;
 	String Call_Receiver_Contact__c;
-	Date Call_scoring_send_time__c;
+	Timestamp Call_scoring_send_time__c;
 	String Call_Skip_By_Contact__c;
 	String Call_skip_by_user__c;
 	String Call_Type__c;
 	Boolean Call_Type_Changed__c;
-	// Date Client_Local_Call_Date__c;
-	Date Client_Local_Call_Date_Time__c;
-	// Date Client_Local_Call_Date_Time1__c;
+	// Timestamp Client_Local_Call_Timestamp__c;
+	Timestamp Client_Local_Call_Date_Time__c;
+	// Timestamp Client_Local_Call_Timestamp_Time1__c;
 	// String Client_Local_Call_Time__c;
 	Integer Client_Local_Call_Time_H__c;
 	// Double Client_Local_Call_Time_M__c;
@@ -66,8 +66,8 @@ public class CallBean {
 	Boolean Is_Update_Via_Batch_T__c;
 	String Language__c;
 	String Latest_Scored_Call__c;
-	// Integer Latest_Scored_Call_Datetime__c;
-	// String Client_Local_Date_Time_Formated1__c;
+	// Integer Latest_Scored_Call_Timestamptime__c;
+	// String Client_Local_Timestamp_Time_Formated1__c;
 	String Month_Created__c;
 	Boolean Moved_to_Old_System__c;
 	String Old_SF_ID__c;
@@ -85,7 +85,7 @@ public class CallBean {
 	Boolean Removed_from_Queue__c;
 	// Integer Scored_Call_count__c;
 	Boolean SendToAmazon__c;
-	Date SendToAmazonDateTime__c;
+	Timestamp SendToAmazonDateTime__c;
 	Boolean SentForEncryption__c;
 	String Skipped_by_CA_contact__c;
 	String Skipped_by_CA_user__c;
@@ -107,11 +107,11 @@ public class CallBean {
 		Id = id;
 	}
 
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return CreatedDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		CreatedDate = createdDate;
 	}
 
@@ -131,27 +131,27 @@ public class CallBean {
 		IsDeleted = isDeleted;
 	}
 
-	public Date getLastModifiedDate() {
+	public Timestamp getLastModifiedDate() {
 		return LastModifiedDate;
 	}
 
-	public void setLastModifiedDate(Date lastModifiedDate) {
+	public void setLastModifiedDate(Timestamp lastModifiedDate) {
 		LastModifiedDate = lastModifiedDate;
 	}
 
-	public Date getLastReferencedDate() {
+	public Timestamp getLastReferencedDate() {
 		return LastReferencedDate;
 	}
 
-	public void setLastReferencedDate(Date lastReferencedDate) {
+	public void setLastReferencedDate(Timestamp lastReferencedDate) {
 		LastReferencedDate = lastReferencedDate;
 	}
 
-	public Date getLastViewedDate() {
+	public Timestamp getLastViewedDate() {
 		return LastViewedDate;
 	}
 
-	public void setLastViewedDate(Date lastViewedDate) {
+	public void setLastViewedDate(Timestamp lastViewedDate) {
 		LastViewedDate = lastViewedDate;
 	}
 
@@ -179,11 +179,11 @@ public class CallBean {
 		RecordTypeId = recordTypeId;
 	}
 
-	public Date getSystemModstamp() {
+	public Timestamp getSystemModstamp() {
 		return SystemModstamp;
 	}
 
-	public void setSystemModstamp(Date systemModstamp) {
+	public void setSystemModstamp(Timestamp systemModstamp) {
 		SystemModstamp = systemModstamp;
 	}
 
@@ -219,11 +219,11 @@ public class CallBean {
 		Bulk_Workflow_Toggle__c = bulk_Workflow_Toggle__c;
 	}
 
-	public Date getCall_Date_Time__c() {
+	public Timestamp getCall_Date_Time__c() {
 		return Call_Date_Time__c;
 	}
 
-	public void setCall_Date_Time__c(Date call_Date_Time__c) {
+	public void setCall_Date_Time__c(Timestamp call_Date_Time__c) {
 		Call_Date_Time__c = call_Date_Time__c;
 	}
 
@@ -267,11 +267,11 @@ public class CallBean {
 		Call_Receiver_Contact__c = call_Receiver_Contact__c;
 	}
 
-	public Date getCall_scoring_send_time__c() {
+	public Timestamp getCall_scoring_send_time__c() {
 		return Call_scoring_send_time__c;
 	}
 
-	public void setCall_scoring_send_time__c(Date call_scoring_send_time__c) {
+	public void setCall_scoring_send_time__c(Timestamp call_scoring_send_time__c) {
 		Call_scoring_send_time__c = call_scoring_send_time__c;
 	}
 
@@ -307,11 +307,11 @@ public class CallBean {
 		Call_Type_Changed__c = call_Type_Changed__c;
 	}
 
-	public Date getClient_Local_Call_Date_Time__c() {
+	public Timestamp getClient_Local_Call_Date_Time__c() {
 		return Client_Local_Call_Date_Time__c;
 	}
 
-	public void setClient_Local_Call_Date_Time__c(Date client_Local_Call_Date_Time__c) {
+	public void setClient_Local_Call_Date_Time__c(Timestamp client_Local_Call_Date_Time__c) {
 		Client_Local_Call_Date_Time__c = client_Local_Call_Date_Time__c;
 	}
 
@@ -611,11 +611,11 @@ public class CallBean {
 		SendToAmazon__c = sendToAmazon__c;
 	}
 
-	public Date getSendToAmazonDateTime__c() {
+	public Timestamp getSendToAmazonDateTime__c() {
 		return SendToAmazonDateTime__c;
 	}
 
-	public void setSendToAmazonDateTime__c(Date sendToAmazonDateTime__c) {
+	public void setSendToAmazonDateTime__c(Timestamp sendToAmazonDateTime__c) {
 		SendToAmazonDateTime__c = sendToAmazonDateTime__c;
 	}
 

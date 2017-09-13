@@ -6,6 +6,10 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Scored_CallListBean implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -882770644525947634L;
 	public List<Scored_CallBean> Scored_CallList;
 
 	@JsonIgnore

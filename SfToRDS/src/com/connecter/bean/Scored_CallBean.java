@@ -1,23 +1,23 @@
 package com.connecter.bean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 public class Scored_CallBean {
 	String Id;
-	Date CreatedDate;
+	Timestamp CreatedDate;
 	String CreatedById;
 	Boolean IsDeleted;
-	Date LastModifiedDate;
-	Date LastActivityDate;
-	// Date LastViewedDate;
+	Timestamp LastModifiedDate;
+	Timestamp LastActivityDate;
+	// Timestamp LastViewedTimestamp;
 	String LastModifiedById;
 	String Name;
 	// String RecordTypeId;
-	Date SystemModstamp;
+	Timestamp SystemModstamp;
 	Double Accuracy_Point__c;
 	Boolean Appt_Scheduled__c;
 	String Call__c;
-	// Date Call_Date_Time__c;
+	// Timestamp Call_Timestamp_Time__c;
 	Boolean Caller_left_name__c;
 	Boolean Caller_Asked_Appt__c;
 	Boolean Caller_Interest_In_Appt__c;
@@ -36,7 +36,7 @@ public class Scored_CallBean {
 	// Double temp_num_Clear_and_Courteous__c;
 	// String Contact_Or_User_Name__c;
 	String Contact_user__c;
-	// Date createdDate_datetime__c;
+	// Timestamp createdTimestamp_datetime__c;
 	String Current_Scorer__c;
 	Boolean Did_audio_Played__c;
 	// Double Efficiency__c;
@@ -58,19 +58,19 @@ public class Scored_CallBean {
 	String No_Please_choose_Why_They_called__c;
 	String Old_SF_ID__c;
 	String Outbound_or_Inbound__c;
-	Date Patient_1_Appt_Date__c;
+	Timestamp Patient_1_Appt_Date__c;
 	String Patient_1_First_Name__c;
 	String Patient_1_Last_Name__c;
-	Date Patient_2_Appt_Date__c;
+	Timestamp Patient_2_Appt_Date__c;
 	String Patient_2_First_Name__c;
 	String Patient_2_Last_Name__c;
-	Date Patient_3_Appt_Date__c;
+	Timestamp Patient_3_Appt_Date__c;
 	String Patient_3_First_Name__c;
 	String Patient_3_Last_Name__c;
-	Date Patient_4_Appt_Date__c;
+	Timestamp Patient_4_Appt_Date__c;
 	String Patient_4_First_Name__c;
 	String Patient_4_Last_Name__c;
-	Date Patient_5_Appt_Date__c;
+	Timestamp Patient_5_Appt_Date__c;
 	String Patient_5_First_Name__c;
 	String Patient_5_Last_Name__c;
 	Boolean Clear_and_Courteous__c;
@@ -80,15 +80,15 @@ public class Scored_CallBean {
 	Boolean Ready_to_Score__c;
 	Boolean Schedule_Appt__c;
 	// Double temp_num_Schedule_Appt__c;
-	Date Score_DateTime__c;
+	Timestamp Score_DateTime__c;
 	String Scorer__c;
-	// Date ScorerLocalTime__c;
+	// Timestamp ScorerLocalTime__c;
 	Double Scoring_Time__c;
 	// Double Scoring_time_in_second__c;
 	Boolean Skipped_by_CA__c;
 	String Staff_Comments__c;
 	// Double Star_Rating__c;
-	// String Text_CreatedDate__c;
+	// String Text_CreatedTimestamp__c;
 	Double Total_Possible_Accuracy_Point__c;
 	// String Total_Scoring_time__c;
 	// String total_time_score__c;
@@ -107,11 +107,11 @@ public class Scored_CallBean {
 		Id = id;
 	}
 
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return CreatedDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		CreatedDate = createdDate;
 	}
 
@@ -131,19 +131,19 @@ public class Scored_CallBean {
 		IsDeleted = isDeleted;
 	}
 
-	public Date getLastModifiedDate() {
+	public Timestamp getLastModifiedDate() {
 		return LastModifiedDate;
 	}
 
-	public void setLastModifiedDate(Date lastModifiedDate) {
+	public void setLastModifiedDate(Timestamp lastModifiedDate) {
 		LastModifiedDate = lastModifiedDate;
 	}
 
-	public Date getLastActivityDate() {
+	public Timestamp getLastActivityDate() {
 		return LastActivityDate;
 	}
 
-	public void setLastActivityDate(Date lastActivityDate) {
+	public void setLastActivityDate(Timestamp lastActivityDate) {
 		LastActivityDate = lastActivityDate;
 	}
 
@@ -163,11 +163,11 @@ public class Scored_CallBean {
 		Name = name;
 	}
 
-	public Date getSystemModstamp() {
+	public Timestamp getSystemModstamp() {
 		return SystemModstamp;
 	}
 
-	public void setSystemModstamp(Date systemModstamp) {
+	public void setSystemModstamp(Timestamp systemModstamp) {
 		SystemModstamp = systemModstamp;
 	}
 
@@ -451,11 +451,11 @@ public class Scored_CallBean {
 		Outbound_or_Inbound__c = outbound_or_Inbound__c;
 	}
 
-	public Date getPatient_1_Appt_Date__c() {
+	public Timestamp getPatient_1_Appt_Date__c() {
 		return Patient_1_Appt_Date__c;
 	}
 
-	public void setPatient_1_Appt_Date__c(Date patient_1_Appt_Date__c) {
+	public void setPatient_1_Appt_Date__c(Timestamp patient_1_Appt_Date__c) {
 		Patient_1_Appt_Date__c = patient_1_Appt_Date__c;
 	}
 
@@ -475,11 +475,11 @@ public class Scored_CallBean {
 		Patient_1_Last_Name__c = patient_1_Last_Name__c;
 	}
 
-	public Date getPatient_2_Appt_Date__c() {
+	public Timestamp getPatient_2_Appt_Date__c() {
 		return Patient_2_Appt_Date__c;
 	}
 
-	public void setPatient_2_Appt_Date__c(Date patient_2_Appt_Date__c) {
+	public void setPatient_2_Appt_Date__c(Timestamp patient_2_Appt_Date__c) {
 		Patient_2_Appt_Date__c = patient_2_Appt_Date__c;
 	}
 
@@ -499,11 +499,11 @@ public class Scored_CallBean {
 		Patient_2_Last_Name__c = patient_2_Last_Name__c;
 	}
 
-	public Date getPatient_3_Appt_Date__c() {
+	public Timestamp getPatient_3_Appt_Date__c() {
 		return Patient_3_Appt_Date__c;
 	}
 
-	public void setPatient_3_Appt_Date__c(Date patient_3_Appt_Date__c) {
+	public void setPatient_3_Appt_Date__c(Timestamp patient_3_Appt_Date__c) {
 		Patient_3_Appt_Date__c = patient_3_Appt_Date__c;
 	}
 
@@ -523,11 +523,11 @@ public class Scored_CallBean {
 		Patient_3_Last_Name__c = patient_3_Last_Name__c;
 	}
 
-	public Date getPatient_4_Appt_Date__c() {
+	public Timestamp getPatient_4_Appt_Date__c() {
 		return Patient_4_Appt_Date__c;
 	}
 
-	public void setPatient_4_Appt_Date__c(Date patient_4_Appt_Date__c) {
+	public void setPatient_4_Appt_Date__c(Timestamp patient_4_Appt_Date__c) {
 		Patient_4_Appt_Date__c = patient_4_Appt_Date__c;
 	}
 
@@ -547,11 +547,11 @@ public class Scored_CallBean {
 		Patient_4_Last_Name__c = patient_4_Last_Name__c;
 	}
 
-	public Date getPatient_5_Appt_Date__c() {
+	public Timestamp getPatient_5_Appt_Date__c() {
 		return Patient_5_Appt_Date__c;
 	}
 
-	public void setPatient_5_Appt_Date__c(Date patient_5_Appt_Date__c) {
+	public void setPatient_5_Appt_Date__c(Timestamp patient_5_Appt_Date__c) {
 		Patient_5_Appt_Date__c = patient_5_Appt_Date__c;
 	}
 
@@ -619,11 +619,11 @@ public class Scored_CallBean {
 		Schedule_Appt__c = schedule_Appt__c;
 	}
 
-	public Date getScore_DateTime__c() {
+	public Timestamp getScore_DateTime__c() {
 		return Score_DateTime__c;
 	}
 
-	public void setScore_DateTime__c(Date score_DateTime__c) {
+	public void setScore_DateTime__c(Timestamp score_DateTime__c) {
 		Score_DateTime__c = score_DateTime__c;
 	}
 

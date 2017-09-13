@@ -1,11 +1,9 @@
 package com.connecter.mappingbean;
 
-import java.util.Date;
+import java.sql.Timestamp;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -14,17 +12,22 @@ import javax.persistence.Table;
 public class CallMappingBean {
 	@Id
 	public String Id;
-	Date CreatedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	Timestamp CreatedDate;
 	String CreatedById;
 	@Column(columnDefinition = "NUMBER(1)")
 	Integer IsDeleted;
-	Date LastModifiedDate;
-	Date LastReferencedDate;
-	Date LastViewedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	Timestamp LastModifiedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	Timestamp LastReferencedDate;
+	@Column(columnDefinition="TIMESTAMP")
+	Timestamp LastViewedDate;
 	String LastModifiedById;
 	String Name;
 	String RecordTypeId;
-	Date SystemModstamp;
+	@Column(columnDefinition="TIMESTAMP")
+	Timestamp SystemModstamp;
 	public String Account__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer add_walk_in__c;
@@ -32,8 +35,9 @@ public class CallMappingBean {
 	public Integer Bulk_Import__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Bulk_Workflow_Toggle__c;
-	// Date Call_Date__c;
-	public Date Call_Date_Time__c;
+	// Timestamp Call_Timestamp__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Call_Date_Time__c;
 	// String Call_Duration_MM_SS__c;
 	// String Call_Duration_MS__c;
 	public String CallerName__c;
@@ -42,15 +46,17 @@ public class CallMappingBean {
 	public String Call_Language__c;
 	public String Call_Receiver__c;
 	public String Call_Receiver_Contact__c;
-	public Date Call_scoring_send_time__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Call_scoring_send_time__c;
 	public String Call_Skip_By_Contact__c;
 	public String Call_skip_by_user__c;
 	public String Call_Type__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Call_Type_Changed__c;
-	// Date Client_Local_Call_Date__c;
-	public Date Client_Local_Call_Date_Time__c;
-	// Date Client_Local_Call_Date_Time1__c;
+	// Timestamp Client_Local_Call_Date__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp Client_Local_Call_Date_Time__c;
+	// Timestamp Client_Local_Call_Timestamp_Time1__c;
 	// String Client_Local_Call_Time__c;
 	public Integer Client_Local_Call_Time_H__c;
 	// Double Client_Local_Call_Time_M__c;
@@ -90,8 +96,8 @@ public class CallMappingBean {
 	public Integer Is_Update_Via_Batch_T__c;
 	public String Language__c;
 	public String Latest_Scored_Call__c;
-	// Integer Latest_Scored_Call_Datetime__c;
-	// String Client_Local_Date_Time_Formated1__c;
+	// Integer Latest_Scored_Call_Timestamptime__c;
+	// String Client_Local_Timestamp_Time_Formated1__c;
 	public String Month_Created__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Moved_to_Old_System__c;
@@ -116,7 +122,8 @@ public class CallMappingBean {
 	// Integer Scored_Call_count__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer SendToAmazon__c;
-	public Date SendToAmazonDateTime__c;
+	@Column(columnDefinition="TIMESTAMP")
+	public Timestamp SendToAmazonDateTime__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer SentForEncryption__c;
 	public String Skipped_by_CA_contact__c;
@@ -143,11 +150,11 @@ public class CallMappingBean {
 		Id = id;
 	}
 
-	public Date getCreatedDate() {
+	public Timestamp getCreatedDate() {
 		return CreatedDate;
 	}
 
-	public void setCreatedDate(Date createdDate) {
+	public void setCreatedDate(Timestamp createdDate) {
 		CreatedDate = createdDate;
 	}
 
@@ -167,27 +174,27 @@ public class CallMappingBean {
 		IsDeleted = isDeleted;
 	}
 
-	public Date getLastModifiedDate() {
+	public Timestamp getLastModifiedDate() {
 		return LastModifiedDate;
 	}
 
-	public void setLastModifiedDate(Date lastModifiedDate) {
+	public void setLastModifiedDate(Timestamp lastModifiedDate) {
 		LastModifiedDate = lastModifiedDate;
 	}
 
-	public Date getLastReferencedDate() {
+	public Timestamp getLastReferencedDate() {
 		return LastReferencedDate;
 	}
 
-	public void setLastReferencedDate(Date lastReferencedDate) {
+	public void setLastReferencedDate(Timestamp lastReferencedDate) {
 		LastReferencedDate = lastReferencedDate;
 	}
 
-	public Date getLastViewedDate() {
+	public Timestamp getLastViewedDate() {
 		return LastViewedDate;
 	}
 
-	public void setLastViewedDate(Date lastViewedDate) {
+	public void setLastViewedDate(Timestamp lastViewedDate) {
 		LastViewedDate = lastViewedDate;
 	}
 
@@ -215,11 +222,11 @@ public class CallMappingBean {
 		RecordTypeId = recordTypeId;
 	}
 
-	public Date getSystemModstamp() {
+	public Timestamp getSystemModstamp() {
 		return SystemModstamp;
 	}
 
-	public void setSystemModstamp(Date systemModstamp) {
+	public void setSystemModstamp(Timestamp systemModstamp) {
 		SystemModstamp = systemModstamp;
 	}
 
@@ -264,11 +271,11 @@ public class CallMappingBean {
 		Bulk_Workflow_Toggle__c = bulk_Workflow_Toggle__c;
 	}
 
-	public Date getCall_Date_Time__c() {
+	public Timestamp getCall_Date_Time__c() {
 		return Call_Date_Time__c;
 	}
 
-	public void setCall_Date_Time__c(Date call_Date_Time__c) {
+	public void setCall_Date_Time__c(Timestamp call_Date_Time__c) {
 		Call_Date_Time__c = call_Date_Time__c;
 	}
 
@@ -312,11 +319,11 @@ public class CallMappingBean {
 		Call_Receiver_Contact__c = call_Receiver_Contact__c;
 	}
 
-	public Date getCall_scoring_send_time__c() {
+	public Timestamp getCall_scoring_send_time__c() {
 		return Call_scoring_send_time__c;
 	}
 
-	public void setCall_scoring_send_time__c(Date call_scoring_send_time__c) {
+	public void setCall_scoring_send_time__c(Timestamp call_scoring_send_time__c) {
 		Call_scoring_send_time__c = call_scoring_send_time__c;
 	}
 
@@ -352,11 +359,11 @@ public class CallMappingBean {
 		Call_Type_Changed__c = call_Type_Changed__c;
 	}
 
-	public Date getClient_Local_Call_Date_Time__c() {
+	public Timestamp getClient_Local_Call_Date_Time__c() {
 		return Client_Local_Call_Date_Time__c;
 	}
 
-	public void setClient_Local_Call_Date_Time__c(Date client_Local_Call_Date_Time__c) {
+	public void setClient_Local_Call_Date_Time__c(Timestamp client_Local_Call_Date_Time__c) {
 		Client_Local_Call_Date_Time__c = client_Local_Call_Date_Time__c;
 	}
 
@@ -648,11 +655,11 @@ public class CallMappingBean {
 		SendToAmazon__c = sendToAmazon__c;
 	}
 
-	public Date getSendToAmazonDateTime__c() {
+	public Timestamp getSendToAmazonDateTime__c() {
 		return SendToAmazonDateTime__c;
 	}
 
-	public void setSendToAmazonDateTime__c(Date sendToAmazonDateTime__c) {
+	public void setSendToAmazonDateTime__c(Timestamp sendToAmazonDateTime__c) {
 		SendToAmazonDateTime__c = sendToAmazonDateTime__c;
 	}
 

@@ -53,4 +53,20 @@ public class Scored_CallService extends BaseService {
 		}
 		return finalScored_CallBeanList;
 	}
+	
+	public String addScored_Calls(final Scored_CallBean scored_CallBean){
+		Scored_CallMappingBean scored_CallMappingBean = null;
+		String id = null;
+		try {
+			scored_CallMappingBean = mappingService.getScored_CallMappingObject(scored_CallBean);
+			System.out.println("in service  : "+scored_CallMappingBean.getId());
+			id = scored_CallDao.addCalls(scored_CallMappingBean);
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return id;
+		
+	}
 }

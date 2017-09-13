@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.connecter.bean.CallBean;
+import com.connecter.bean.Scored_CallBean;
 import com.connecter.dao.BaseDao;
 import com.connecter.dao.CallDao;
 import com.connecter.mappingbean.CallMappingBean;
@@ -53,6 +54,9 @@ public class CallService extends BaseService {
 			}
 		}
 		return finalCallBeanList;
+	}
+	public void updateLatestScored_Call(Scored_CallBean scored_CallBean){
+		callDao.changeLatestScored_Call(scored_CallBean);
 	}
 
 }

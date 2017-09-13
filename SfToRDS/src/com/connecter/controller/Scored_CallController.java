@@ -35,11 +35,14 @@ public class Scored_CallController {
 		List<String> insertedScored_CallList = new ArrayList<String>();
 		try {
 			//System.out.println(scored_CallBeanList.Scored_CallList.get(0).getBulk_Import__c());
+			
 			for (Scored_CallBean scored_CallBean : scored_CallBeanList.getScored_CallList()) {
 				//System.out.println(scored_CallBean.getBulk_Import__c());
 				//System.out.println(scored_CallBean.getScored_CallerName__c());
-				Scored_CallMappingBean scored_CallMappingBean = mappingService.getScored_CallMappingObject(scored_CallBean);
-				String id = (String) scored_CallService.save(scored_CallMappingBean);
+				System.out.println("in score "+scored_CallBean.getCall_Type__c());
+				String id = scored_CallService.addScored_Calls(scored_CallBean);
+				//Scored_CallMappingBean scored_CallMappingBean = mappingService.getScored_CallMappingObject(scored_CallBean);
+				//String id = (String) scored_CallService.save(scored_CallMappingBean);
 				insertedScored_CallList.add(id);
 			}
 
