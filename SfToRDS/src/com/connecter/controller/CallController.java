@@ -37,10 +37,9 @@ public class CallController {
 		try {
 			//System.out.println(callBeanList.CallList.get(0).getBulk_Import__c());
 			for (CallBean callBean : callBeanList.getCallList()) {
-				System.out.println(callBean.getBulk_Import__c());
-				System.out.println(callBean.getCallerName__c());
+				System.out.println("add : "+callBean.getCallers_Phone_Number__c());
 				CallMappingBean callMappingBean = mappingService.getCallMappingObject(callBean);
-				String id = (String) callService.save(callMappingBean);
+				String id = (String) callService.addCall(callMappingBean);
 				insertedCallList.add(id);
 			}
 
@@ -64,7 +63,7 @@ public class CallController {
 		for (CallBean callBean : callBeanList.getCallList()) {
 			try {
 				CallMappingBean callMappingBean = mappingService.getCallMappingObject(callBean);
-				callService.delete(callMappingBean);
+				callService.deleteCall(callMappingBean);
 				deletedCallList.add("{result : success , Id :" + callBean.getId() + " }");
 			} catch (Exception e) {
 				e.printStackTrace();
@@ -93,6 +92,23 @@ public class CallController {
 					updatedCallList
 							.add("{result : failure, Id : " + callBean.getId() + ", Error : " + e.getMessage() + "}");
 				}
+			}
+		}
+
+		return updatedCallList;
+	}
+	
+	@RequestMapping(value = "/ws/call/updateCall", method = RequestMethod.POST)
+	public @ResponseBody List<String> updateCall(@RequestBody CallListBean callBeanList) {
+		List<String> updatedCallList = new ArrayList<String>();
+
+		//System.out.println(callBeanList.CallList.get(0).getCallerName__c());
+		if (callBeanList != null) {
+			try {
+				callService.updateCalls(callBeanList.getCallList());
+			} catch (Exception e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
 

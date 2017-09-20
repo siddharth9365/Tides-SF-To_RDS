@@ -1,6 +1,10 @@
 package com.connecter.bean;
 
 import java.sql.Timestamp;
+import java.util.ArrayList;
+
+import com.connecter.observers.CallObserver;
+import com.connecter.subjects.CallSubject;
 
 public class CallBean {
 	String Id;
@@ -39,7 +43,7 @@ public class CallBean {
 	// String Client_Local_Call_Time__c;
 	Integer Client_Local_Call_Time_H__c;
 	// Double Client_Local_Call_Time_M__c;
-	// String Client_Local_Time_Zone__c;
+	String Client_Local_Time_Zone__c;
 	String Client_Number__c;
 	String Client_Number_Formatted__c;
 	// String Company_Name__c;
@@ -98,6 +102,14 @@ public class CallBean {
 	// Integer Tracking_Data_Count__c;
 	String Twilio_Number__c;
 	Boolean Update_Counter__c;
+
+	public String getClient_Local_Time_Zone__c() {
+		return Client_Local_Time_Zone__c;
+	}
+
+	public void setClient_Local_Time_Zone__c(String client_Local_Time_Zone__c) {
+		Client_Local_Time_Zone__c = client_Local_Time_Zone__c;
+	}
 
 	public String getId() {
 		return Id;

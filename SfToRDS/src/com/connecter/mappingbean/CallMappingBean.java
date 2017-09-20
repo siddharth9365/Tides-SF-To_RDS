@@ -12,21 +12,21 @@ import javax.persistence.Table;
 public class CallMappingBean {
 	@Id
 	public String Id;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	Timestamp CreatedDate;
 	String CreatedById;
 	@Column(columnDefinition = "NUMBER(1)")
 	Integer IsDeleted;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	Timestamp LastModifiedDate;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	Timestamp LastReferencedDate;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	Timestamp LastViewedDate;
 	String LastModifiedById;
 	String Name;
 	String RecordTypeId;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	Timestamp SystemModstamp;
 	public String Account__c;
 	@Column(columnDefinition = "NUMBER(1)")
@@ -36,7 +36,7 @@ public class CallMappingBean {
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Bulk_Workflow_Toggle__c;
 	// Timestamp Call_Timestamp__c;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	public Timestamp Call_Date_Time__c;
 	// String Call_Duration_MM_SS__c;
 	// String Call_Duration_MS__c;
@@ -46,7 +46,7 @@ public class CallMappingBean {
 	public String Call_Language__c;
 	public String Call_Receiver__c;
 	public String Call_Receiver_Contact__c;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	public Timestamp Call_scoring_send_time__c;
 	public String Call_Skip_By_Contact__c;
 	public String Call_skip_by_user__c;
@@ -54,13 +54,13 @@ public class CallMappingBean {
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Call_Type_Changed__c;
 	// Timestamp Client_Local_Call_Date__c;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	public Timestamp Client_Local_Call_Date_Time__c;
 	// Timestamp Client_Local_Call_Timestamp_Time1__c;
 	// String Client_Local_Call_Time__c;
 	public Integer Client_Local_Call_Time_H__c;
 	// Double Client_Local_Call_Time_M__c;
-	// String Client_Local_Time_Zone__c;
+	public String Client_Local_Time_Zone__c;
 	public String Client_Number__c;
 	public String Client_Number_Formatted__c;
 	// String Company_Name__c;
@@ -122,7 +122,7 @@ public class CallMappingBean {
 	// Integer Scored_Call_count__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer SendToAmazon__c;
-	@Column(columnDefinition="TIMESTAMP")
+	@Column(columnDefinition = "TIMESTAMP")
 	public Timestamp SendToAmazonDateTime__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer SentForEncryption__c;
@@ -141,6 +141,14 @@ public class CallMappingBean {
 	public String Twilio_Number__c;
 	@Column(columnDefinition = "NUMBER(1)")
 	public Integer Update_Counter__c;
+
+	public String getClient_Local_Time_Zone__c() {
+		return Client_Local_Time_Zone__c;
+	}
+
+	public void setClient_Local_Time_Zone__c(String client_Local_Time_Zone__c) {
+		Client_Local_Time_Zone__c = client_Local_Time_Zone__c;
+	}
 
 	public String getId() {
 		return Id;

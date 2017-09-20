@@ -2,6 +2,7 @@ package com.connecter.controller;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -57,6 +58,14 @@ public class Scored_CallController {
 		System.out.println("in controller : "+scored_CallBean.getId());
 		List<Scored_CallBean> selectedScored_CallList = new ArrayList<Scored_CallBean>();
 		selectedScored_CallList = scored_CallService.getSelected(scored_CallBean);
+		return selectedScored_CallList;
+	}
+	
+	@RequestMapping(value = "/ws/scored_Call/selectScored_Call", method = RequestMethod.POST)
+	public @ResponseBody List<Map<String,Object>> selectFormulaScored_Calls(@RequestBody Scored_CallBean scored_CallBean) {
+		System.out.println("in controller : "+scored_CallBean.getId());
+		List<Map<String,Object>> selectedScored_CallList = new ArrayList<Map<String,Object>>();
+		selectedScored_CallList = scored_CallService.getFormulaSelected(scored_CallBean);
 		return selectedScored_CallList;
 	}
 

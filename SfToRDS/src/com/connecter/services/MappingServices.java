@@ -1,5 +1,8 @@
 package com.connecter.services;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.dozer.Mapper;
 import org.dozer.spring.DozerBeanMapperFactoryBean;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,6 +30,17 @@ public class MappingServices {
 		CallBean callBean = new CallBean();
 		mapper.map(callMappingBean, callBean, "call-data-to-sf-mapping");
 		return callBean;
+	}
+
+	public List<CallBean> getCallObjectList(List<CallMappingBean> callMappingBeanList) throws Exception {
+		List<CallBean> callBeanList = new ArrayList<CallBean>();
+		for (CallMappingBean callMappingBean : callMappingBeanList) {
+			Mapper mapper = (Mapper) dozerBean.getObject();
+			CallBean callBean = new CallBean();
+			mapper.map(callMappingBean, callBean, "call-data-to-sf-mapping");
+			callBeanList.add(callBean);
+		}
+		return callBeanList;
 	}
 
 	public Scored_CallMappingBean getScored_CallMappingObject(Scored_CallBean callBean) throws Exception {
